@@ -1,0 +1,33 @@
+<div class="container" style="margin-top: 70px;">
+  <h2>Product List</h2>
+  <button (click)="add()">
+    Add
+  </button>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>_id</th>
+        <th>prod_name</th>
+        <th>prod_desc</th>
+        <th>prod_price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of products; let i=index;">
+
+        <td>{{ p._id }}</td>
+        <td> {{ p.prod_name }}</td>
+        <td> {{ p.prod_desc }}</td>
+        <td> {{ p.prod_price }}</td>
+        <td>
+          <a routerLink="/product-details/{{p._id}}">
+            <span class="badge">{{i+1}}</span> {{p.prod_name}}
+          </a>
+          <button class="delete" title="delete product"
+          (click)="delete(p._id)">x</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
